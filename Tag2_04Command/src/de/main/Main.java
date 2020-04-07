@@ -32,6 +32,8 @@ public class Main {
 			if(command == null) continue;
 			
 			command.execute();
+			
+			history.addCommand(command);
 		}
 
 	}

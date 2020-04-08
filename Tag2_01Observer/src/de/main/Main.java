@@ -1,6 +1,5 @@
 package de.main;
 
-import de.tiere.PigTooFatListener;
 import de.tiere.Schwein;
 
 public class Main {
@@ -15,7 +14,7 @@ public class Main {
 		Schwein piggy = new Schwein("Miss Piggy");
 		piggy.addPigTooFatListener(e->metzger.schlachten(e));
 		piggy.addPigTooFatListener(e->spediteur.fahren(e));
-		
+		piggy.addPropertyChangedListener(e->System.out.println(e));
 		for (int i = 0; i <15; i++) {
 			piggy.fressen();
 		}

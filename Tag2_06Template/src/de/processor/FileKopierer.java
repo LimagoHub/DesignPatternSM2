@@ -3,7 +3,7 @@ package de.processor;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileKopierer extends AbstractFileProcessor {
+public class FileKopierer implements CharacterHandler {
 	
 	private FileWriter out;
 	

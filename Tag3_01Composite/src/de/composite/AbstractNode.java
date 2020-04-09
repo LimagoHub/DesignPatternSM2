@@ -1,7 +1,11 @@
 package de.composite;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+
+import de.composite.visitors.KontoVisitor;
 
 public abstract class AbstractNode {
 	
@@ -41,6 +45,25 @@ public abstract class AbstractNode {
 		return builder.toString();
 	}
 	
+	public Iterator<AbstractNode> iterator() {
+		List<AbstractNode> list = new ArrayList<>();
+		iteratorImpl(list);
+		return list.iterator();
+	}
+
+	private void iteratorImpl(List<AbstractNode> list) {
+		list.add(this);
+		getChildren().forEach(c->c.iteratorImpl(list));
+		
+	}
 	
+	public abstract void accept(KontoVisitor visitor); 
+	
+	public void iterate(KontoVisitor visitor) {
+		visitor.init();
+		iterator().forEachRemaining(k->k.accept(visitor));
+		visitor.close();
+		
+	}
 
 }

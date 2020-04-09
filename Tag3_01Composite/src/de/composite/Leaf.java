@@ -1,5 +1,7 @@
 package de.composite;
 
+import de.composite.visitors.KontoVisitor;
+
 public class Leaf extends AbstractNode {
 
 	public Leaf(String label) {
@@ -15,6 +17,10 @@ public class Leaf extends AbstractNode {
 		return builder.toString();
 	}
 	
-	
+	@Override
+	public void accept(KontoVisitor visitor) {
+		visitor.visit(this);
+		
+	}
 
 }

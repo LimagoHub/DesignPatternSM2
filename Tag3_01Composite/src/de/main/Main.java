@@ -3,6 +3,7 @@ package de.main;
 import de.composite.AbstractNode;
 import de.composite.Leaf;
 import de.composite.Node;
+import de.composite.visitors.PrintVisitor;
 
 public class Main {
 
@@ -32,7 +33,12 @@ public class Main {
 		Leaf e2_4 = new Leaf("E2_4");
 		e1_2.addChild(e2_4);
 		
-		travers(root);
+		//travers(root);
+		
+		root.iterate(new PrintVisitor());
+		
+//		root.print();
+//		e1_1.print();
 
 	}
 	

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import de.composite.visitors.KontoVisitor;
+
 public class Node extends AbstractNode {
 
 	private List<AbstractNode> children = new ArrayList<>();
@@ -37,5 +39,9 @@ public class Node extends AbstractNode {
 		child.setParent(null);
 		children.remove(child);
 	}
-	
+	@Override
+	public void accept(KontoVisitor visitor) {
+		visitor.visit(this);
+		
+	}
 }

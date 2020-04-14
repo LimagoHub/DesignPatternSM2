@@ -90,7 +90,7 @@ public class Table implements AutoCloseable {
 		if(zeile == null) {
 			zeile = new HashMap<>();
 			for(int column=0;column<getColumnCount();column++) {
-				zeile.put(getColumnName(column), "");
+				zeile.put(getColumnName(column), ""); 
 			}
 		}
 		return zeile;
